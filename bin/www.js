@@ -45,7 +45,9 @@ io.sockets.on('connection', function (socket) {
             for(var i = 0; i < directions.length; i++){
                 if(directions[i].id == directionId){
                     console.log("Position found (id : " + directionId + ")");
+                    console.log("Emit : " + directions[i]);
                     socket.emit('newDirection', directions[i]);
+                    break;
                 }
             }
         });
@@ -59,29 +61,20 @@ io.sockets.on('connection', function (socket) {
             for(var i = 0; i < positions.length; i++){
                 if(positions[i].id == positionId){
                     console.log("Position found (id : " + positionId + ")");
-                    socket.emit('newDirection', positions[i]);
+                    console.log("Emit : " + positions[i]);
+                    socket.emit('newPosition', positions[i]);
+                    break;
                 }
             }
         });
     });
 
-    // fs.readFile('ressources/directions.json', 'utf8', function (err2, data2) {
-    //                     if (err2) throw err2;
-    //                     obj2 = JSON.parse(data2);
-    //                     for(var j = 0; j < obj2.directions.length; j++) {
-    //                         if (obj2.directions[j].id === positionId){
-    //                             answer.direction = obj2.directions[j];
-    //                             console.log("answer: "+JSON.stringify(answer));
-    //                             socket.emit('newDirection', answer);
-    //                         }
-    //                     }
-    //                 });
-
     socket.on('askAllRooms', function (positionId) {
-        console.log('All rooms asked');  
-        var obj;
+        console.log('All rooms asked');
         fs.readFile('ressources/rooms.json', 'utf8', function (err, data) {
             if (err) throw err;
+            console.log("File ressources/rooms.json open");
+            console.log("Emit : " + data);
             socket.emit('allRooms', data);
         });
     });
