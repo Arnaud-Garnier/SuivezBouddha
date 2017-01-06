@@ -2,6 +2,7 @@
 	"directions": [
 		{
 			"id" : "0",
+			"finish" : "false",
 			"directions" : [
 				{
 					"speed" : "0.25f",
@@ -12,6 +13,7 @@
 		},
 		{
 			"id" : "1",
+			"finish" : "false",
 			"directions" : [
 				{
 					"speed" : "0.25f",
@@ -32,6 +34,7 @@
 		},
 		{
 			"id" : "2",
+			"finish" : "true",	
 			"directions" : [
 				{
 					"speed" : "0.25f",
