@@ -51,9 +51,46 @@ function readFile (path) {
                 console.log("File " + path + " red");
                 resolve(data);
             }
-        }
-        )
+        })
     })
+    return promise;
+}
+
+/**
+* Read file
+*/
+function getRoomIndex(rooms, room) {
+    var promise = new Promise(function(resolve, reject) {
+        for(var i = 0; i < rooms.length; i++){
+            if(rooms[i].number == room.number){
+                console.log("index found : " + i);
+                resolve(i);
+                return;
+            }
+        }
+        reject();
+    });
+    return promise;
+}
+
+/**
+* Add room
+*/
+function addRoom(rooms, room) {
+    var promise = new Promise(function(resolve, reject) {
+        var i = 0;
+        console.log(room);
+        console.log(rooms);
+        while(rooms.length > i && room.number > rooms[i].number){
+            console.log(i + " : ")
+            console.log(JSON.stringify(rooms[i]));
+            i++;
+        }
+        console.log("While end");
+        rooms.splice(i, 0, room);
+        console.log(rooms);
+        resolve(rooms);
+    });
     return promise;
 }
 
@@ -67,6 +104,14 @@ var io = require('socket.io').listen(server);
 io.sockets.on('connection', function (socket) {
     console.log("------------------");
     console.log('New Client');
+
+    function sendRooms() {
+        readFile('ressources/rooms.json').then(
+            function(data) {
+                console.log("Emit : " + JSON.stringify(data));
+                socket.emit('allRooms', data);
+            })
+    }
 
     // Quand un message arrive, on le note dans la console
     socket.on('message', function (msg) {
@@ -109,14 +154,10 @@ io.sockets.on('connection', function (socket) {
     });
 
 
-    socket.on('askAllRooms', function (positionId) {
+    socket.on('askAllRooms', function () {
         console.log("------------------");
         console.log('All rooms asked');
-        readFile('ressources/rooms.json').then(
-            function(data) {
-                console.log("Emit : " + JSON.stringify(data));
-                socket.emit('allRooms', data);
-            })
+        sendRooms();
     });
 
     socket.on('setRoom', function(room){
@@ -125,24 +166,61 @@ io.sockets.on('connection', function (socket) {
         readFile('ressources/rooms.json').then(
             function(data){
                 var data = JSON.parse(data);
-                for(var i = 0; i < data.rooms.length; i++){
-                    console.log(data.rooms[i]);
-                    if(data.rooms[i].number == room.number){
-                        console.log("Room " + room.number + " found");
-                        data.rooms[i] = room;
-                        writeFile('ressources/rooms.json', JSON.stringify(data)).then(
-                            function(){
-                                console.log("Emit : roomEdition")
-                                socket.emit("roomEdition", "Room " + room.number + " edition success!");
-                            }, function() {
-                                console.log("Emit : roomEdition")
-                                socket.emit("roomEdition", "Room " + room.number + " edition fail!");
-                            });
-                        break;
-                    }
-                }
+                getRoomIndex(data.rooms, room).then(function(index) {
+                    data.rooms[index] = room;
+                    writeFile('ressources/rooms.json', JSON.stringify(data)).then(
+                        function(){
+                            console.log("Emit : roomEdition")
+                            socket.emit("roomEdition", "Room " + room.number + " edition success!");
+                        }, function() {
+                            console.log("Emit : roomEdition")
+                            socket.emit("roomEdition", "Room " + room.number + " edition fail!");
+                        });
+                });
             });
 
+    });
+
+    socket.on('removeRoom', function(room) {
+        console.log("------------------");
+        console.log("Removing room : " + room.number);
+        readFile('ressources/rooms.json').then(
+            function(data){
+                var data = JSON.parse(data);
+                getRoomIndex(data.rooms, room).then(function(index) {
+                    data.rooms.splice(index, 1);
+                    writeFile('ressources/rooms.json', JSON.stringify(data)).then(
+                        function(){
+                            console.log("Emit : roomDeletion")
+                            socket.emit("roomDeletion", "Room " + room.number + " deletion success!");
+                            sendRooms();
+                        }, function() {
+                            console.log("Emit : roomDeletion")
+                            socket.emit("roomDeletion", "Room " + room.number + " deletion fail!");
+                        });
+
+                });
+            })
+    });
+
+    socket.on('addRoom', function(room){
+        console.log("------------------");
+        console.log("Adding room : " + room.number);
+        readFile('ressources/rooms.json').then(
+            function(data){
+                var data = JSON.parse(data);
+                addRoom(data.rooms, room).then(function(rooms){
+                    data.rooms = rooms;
+                    writeFile('ressources/rooms.json', JSON.stringify(data)).then(
+                        function(){
+                            console.log("Emit : roomAddition");
+                            socket.emit("roomAddition", "Room " + room.number + " addition success!");
+                        }, function() {
+                            console.log("Emit : roomAddition");
+                            socket.emit("roomAddition", "Room " + room.number + " addition fail!");
+                        });
+                });
+            })
     })
 });
 
