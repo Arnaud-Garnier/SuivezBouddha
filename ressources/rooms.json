@@ -1,1 +1,20 @@
-{"rooms":[{"number":201,"description":"","activity":"Présentation BDS"},{"number":"204","activity":"Présentation projets de fin d'études"},{"number":"210","activity":"Chasse au trésor"},{"number":300,"description":"","activity":"Présentation BDE"},{"number":"303","activity":"Jeux de société"},{"number":"304","activity":"Présentation semaine de ski"},{"number":"306","activity":"Buffet"},{"number":"310","activity":"Espace entreprises 1"},{"number":"410","activity":"Espace entreprises 2"},{"number":"421","activity":"Présentation du parcours IHM"},{"number":500,"activity":"Présentation du parcours AL"}]}
+[
+	{
+		"name": "Bâtiment Ouest - Rez-de-chaussée",
+		"rooms" : [
+			{"number" : "Bibliotheque", "activity" : "Library presentation", "top" : "-110", "left" : "75"},
+			{"number" : "Amphi Ouest", "activity" : "IHM presentation", "top" : "-210", "left" : "470"},
+			{"number" : "Amphi Est", "activity" : "AL presentation", "top" : "-90", "left" : "550"},
+			{"number" : "Cafeteria", "activity" : "IAM presentation", "top" : "160", "left" : "50"}
+		]
+	},
+	{
+		"name": "Bâtiment Ouest - Premier Étage",
+		"rooms" : [
+			{"number" : "Bibliotheque", "activity" : "Library presentation", "top" : "-110", "left" : "75"},
+			{"number" : "Amphi Ouest", "activity" : "IHM presentation", "top" : "-210", "left" : "470"},
+			{"number" : "Amphi Est", "activity" : "AL presentation", "top" : "-90", "left" : "550"},
+			{"number" : "Cafeteria", "activity" : "IAM presentation", "top" : "160", "left" : "50"}
+		]
+	}
+]
