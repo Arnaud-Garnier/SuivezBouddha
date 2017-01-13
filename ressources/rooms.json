@@ -1,20 +1,22 @@
 [
 	{
 		"name": "Bâtiment Ouest - Rez-de-chaussée",
+		"image" : "assets/floor1.svg",
 		"rooms" : [
-			{"number" : "Bibliotheque", "activity" : "Library presentation", "top" : "-110", "left" : "75"},
+			{"number" : "Bibliotheque", "activity" : "Library presentation", "top" : "-110", "left" : "55"},
 			{"number" : "Amphi Ouest", "activity" : "IHM presentation", "top" : "-210", "left" : "470"},
 			{"number" : "Amphi Est", "activity" : "AL presentation", "top" : "-90", "left" : "550"},
-			{"number" : "Cafeteria", "activity" : "IAM presentation", "top" : "160", "left" : "50"}
+			{"number" : "Cafeteria", "activity" : "IAM presentation", "top" : "160", "left" : "40"}
 		]
 	},
 	{
 		"name": "Bâtiment Ouest - Premier Étage",
+		"image" : "assets/floor2.svg",
 		"rooms" : [
-			{"number" : "Bibliotheque", "activity" : "Library presentation", "top" : "-110", "left" : "75"},
-			{"number" : "Amphi Ouest", "activity" : "IHM presentation", "top" : "-210", "left" : "470"},
-			{"number" : "Amphi Est", "activity" : "AL presentation", "top" : "-90", "left" : "550"},
-			{"number" : "Cafeteria", "activity" : "IAM presentation", "top" : "160", "left" : "50"}
+			{"number" : "O+308", "activity" : "Library presentation", "top" : "-140", "left" : "0"},
+			{"number" : "O+307", "activity" : "IHM presentation", "top" : "-210", "left" : "470"},
+			{"number" : "O+306", "activity" : "AL presentation", "top" : "-90", "left" : "550"},
+			{"number" : "O+305", "activity" : "IAM presentation", "top" : "160", "left" : "50"}
 		]
 	}
 ]
