@@ -7,6 +7,7 @@
 					"id" : "0",
 					"finish" : "false",
 					"stairs" : "up",
+					"qrcodeId": "1",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -19,6 +20,7 @@
 					"id" : "1",
 					"finish" : "false",
 					"stairs" : "none",
+					"qrcodeId": "2",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -41,6 +43,7 @@
 					"id" : "2",
 					"finish" : "true",
 					"stairs" : "none",
+					"qrcodeId": "3",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -58,6 +61,7 @@
 					"id" : "0",
 					"finish" : "false",
 					"stairs" : "false",
+					"qrcodeId": "2",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -70,6 +74,7 @@
 					"id" : "1",
 					"finish" : "true",
 					"stairs" : "none",
+					"qrcodeId": "1",
 					"directions" : [
 						{
 							"speed" : "0.25f",
