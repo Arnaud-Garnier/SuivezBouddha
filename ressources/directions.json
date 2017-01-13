@@ -2,6 +2,8 @@
 	"directions": [
 		{
 			"id" : "0",
+			"finish" : "false",
+			"stairs" : "none",
 			"directions" : [
 				{
 					"speed" : "0.25f",
@@ -12,6 +14,8 @@
 		},
 		{
 			"id" : "1",
+			"finish" : "false",
+			"stairs" : "up",
 			"directions" : [
 				{
 					"speed" : "0.25f",
@@ -32,6 +36,8 @@
 		},
 		{
 			"id" : "2",
+			"finish" : "true",
+			"stairs" : "none",
 			"directions" : [
 				{
 					"speed" : "0.25f",
