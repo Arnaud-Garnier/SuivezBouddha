@@ -118,19 +118,30 @@ io.sockets.on('connection', function (socket) {
         console.log('Message received : '+ msg);
     });
 
-    socket.on('askDirection', function (directionId) {
+    socket.on('askDirection', function (roomId, directionId) {
         console.log("------------------");
+        console.log("Room asked (id : " + roomId + ")");
         console.log("Direction asked (id : " + directionId + ")");
         fs.readFile('ressources/directions.json', 'utf8', function (err, data) {
             if (err) throw err;
             console.log("File ressources/directions.json open");
-            var directions = JSON.parse(data).directions;
-            for(var i = 0; i < directions.length; i++){
-                if(directions[i].id == directionId){
-                    console.log("Direction found (id : " + directionId + ")");
-                    console.log("Emit : " + JSON.stringify(directions[i]));
-                    socket.emit('newDirection', directions[i]);
-                    break;
+            var directions2 = JSON.parse(data).directions;
+            for(var y = 0; y < directions2.length; y++){
+
+                if (directions2[y].roomID == roomId) {
+                    console.log("Room found (id : " + roomId + ")");
+                    
+                    directions2 = JSON.stringify(directions2[y]);
+                    var directions = JSON.parse(directions2).directions;
+
+                    for (var i = 0; i < directions.length; i++) {
+                        if (directions[i].id == directionId) {
+                            console.log("Direction found (id : " + directionId + ")");
+                            console.log("Emit : " + JSON.stringify(directions[i]));
+                            socket.emit('newDirection', directions[i]);
+                            break;
+                        }
+                    }
                 }
             }
         });
