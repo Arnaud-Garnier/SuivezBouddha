@@ -1,1 +1,1 @@
-{"positions": [{"id" : "1",	"position" : "170-200"},{"id" : "2","position" : "170-500"},{"id" : "3","position" : "170-800"}]}
+{"positions": [{"id" : "1","position" : "170-230", "floor" : 1},{"id" : "2","position" : "150-590", "floor" : 2},{"id" : "3","position" : "420-600", "floor" : 2}, {"id" : "4","position" : "100-200", "floor" : 2}, {"id" : "5","position" : "450-200", "floor" : 2}, {"id" : "6","position" : "150-590", "floor" : 1}]}
