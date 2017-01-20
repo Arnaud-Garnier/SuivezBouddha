@@ -1,13 +1,13 @@
 {
 	"directions": [
 		{
-			"roomID" : "Bibliotheque",
+			"roomID" : "O+311",
 			"directions" : [
 				{
 					"id" : "0",
 					"finish" : "false",
 					"stairs" : "up",
-					"qrcodeId": "1",
+					"qrcodeId": "2",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -31,7 +31,7 @@
 					"id" : "1",
 					"finish" : "false",
 					"stairs" : "none",
-					"qrcodeId": "2",
+					"qrcodeId": "3",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -44,7 +44,7 @@
 					"id" : "2",
 					"finish" : "false",
 					"stairs" : "none",
-					"qrcodeId": "3",
+					"qrcodeId": "4",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -67,7 +67,7 @@
 					"id" : "3",
 					"finish" : "true",
 					"stairs" : "none",
-					"qrcodeId": "4",
+					"qrcodeId": "-1",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -79,13 +79,13 @@
 			]
 		},
 		{
-			"roomID" : "Amphi Ouest",
+			"roomID" : "O+318",
 			"directions" : [
 				{
 					"id" : "0",
 					"finish" : "false",
 					"stairs" : "up",
-					"qrcodeId": "1",
+					"qrcodeId": "2",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -108,8 +108,8 @@
 				{
 					"id" : "1",
 					"finish" : "false",
-					"stairs" : "false",
-					"qrcodeId": "2",
+					"stairs" : "none",
+					"qrcodeId": "3",
 					"directions" : [
 						{
 							"speed" : "0.25f",
@@ -136,41 +136,12 @@
 					"id" : "3",
 					"finish" : "true",
 					"stairs" : "none",
-					"qrcodeId": "6",
+					"qrcodeId": "-1",
 					"directions" : [
 						{
 							"speed" : "0.25f",
 							"direction" : "135",
 							"delay" : "3000"
-						}
-					]
-				}
-			]
-		},
-		{
-			"roomID" : "O+305",
-			"directions" : [
-				{
-					"id" : "0",
-					"finish" : "false",
-					"stairs" : "up",
-					"qrcodeId": "1",
-					"directions" : [
-						{
-							"speed" : "0.25f",
-							"direction" : "315",
-							"delay" : "2600"
-						},
-						{
-							"speed" : "0.25f",
-							"direction" : "0",
-							"delay" : "2600"
-
-						},
-						{
-							"speed" : "0.25f",
-							"direction" : "90",
-							"delay" : "1750"
 						}
 					]
 				}
