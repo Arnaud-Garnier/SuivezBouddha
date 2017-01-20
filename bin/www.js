@@ -63,13 +63,27 @@ function getRoomIndex(rooms, room) {
     var promise = new Promise(function(resolve, reject) {
         for(var i = 0; i < rooms.length; i++){
             if(rooms[i].number == room.number){
-                console.log("index found : " + i);
+                console.log("room index found : " + i);
                 resolve(i);
                 return;
             }
         }
         reject();
     });
+    return promise;
+}
+
+function getFloorIndex(floors, floor) {
+    var promise = new Promise(function(resolve, reject) {
+        for(var i = 0; i < floors.length; i++) {
+            if(floors.name == floor){
+                console.log("floor index found : " + i);
+                resolve(i);
+                return;
+            }
+        }
+        reject();
+    })
     return promise;
 }
 
@@ -160,22 +174,26 @@ io.sockets.on('connection', function (socket) {
         sendRooms();
     });
 
-    socket.on('setRoom', function(room){
+    socket.on('setRoom', function(room, floor){
         console.log("------------------");
         console.log("Setting room : " + room.number);
         readFile('ressources/rooms.json').then(
-            function(data){
-                var data = JSON.parse(data);
-                getRoomIndex(data.rooms, room).then(function(index) {
-                    data.rooms[index] = room;
-                    writeFile('ressources/rooms.json', JSON.stringify(data)).then(
-                        function(){
-                            console.log("Emit : roomEdition")
-                            socket.emit("roomEdition", "Room " + room.number + " edition success!");
-                        }, function() {
-                            console.log("Emit : roomEdition")
-                            socket.emit("roomEdition", "Room " + room.number + " edition fail!");
-                        });
+            function(floors){
+                var floors = JSON.parse(floors);
+                getFloorIndex(floors).then(function(floorIndex){
+                    getRoomIndex(floors[floorIndex].rooms, room).then(function(roomIndex) {
+                        console.log(floors[floorIndex].rooms[roomIndex]);
+                        floors[floorIndex].rooms[roomIndex] = room;
+                        console.log(floors[floorIndex].rooms[roomIndex]);
+                        writeFile('ressources/rooms.json', JSON.stringify(floors)).then(
+                            function(){
+                                console.log("Emit : roomEdition")
+                                socket.emit("roomEdition", "Room " + room.number + " edition success!");
+                            }, function() {
+                                console.log("Emit : roomEdition")
+                                socket.emit("roomEdition", "Room " + room.number + " edition fail!");
+                            });
+                    });
                 });
             });
 
