@@ -74,9 +74,11 @@ function getRoomIndex(rooms, room) {
 }
 
 function getFloorIndex(floors, floor) {
+    console.log("Floor to search : " + floor);
+    console.log("Floors : " + floors);
     var promise = new Promise(function(resolve, reject) {
         for(var i = 0; i < floors.length; i++) {
-            if(floors.name == floor){
+            if(floors[i].name == floor){
                 console.log("floor index found : " + i);
                 resolve(i);
                 return;
@@ -185,13 +187,15 @@ io.sockets.on('connection', function (socket) {
         sendRooms();
     });
 
-    socket.on('setRoom', function(room, floor){
+    socket.on('setRoom', function(data){
+        var room = data.room;
+        var floor = data.floor;
         console.log("------------------");
         console.log("Setting room : " + room.number);
         readFile('ressources/rooms.json').then(
             function(floors){
                 var floors = JSON.parse(floors);
-                getFloorIndex(floors).then(function(floorIndex){
+                getFloorIndex(floors, floor).then(function(floorIndex){
                     getRoomIndex(floors[floorIndex].rooms, room).then(function(roomIndex) {
                         console.log(floors[floorIndex].rooms[roomIndex]);
                         floors[floorIndex].rooms[roomIndex] = room;
