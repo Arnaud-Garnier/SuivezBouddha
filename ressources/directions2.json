@@ -1,0 +1,108 @@
+{
+  "directions": [
+    {
+      "direction": "1-2",
+      "data": {
+        "stairs": "up",
+        "qrcodeId": "2",
+        "directions": [
+          {
+            "speed": "0.25f",
+            "direction": "315",
+            "delay": "2600"
+          },
+          {
+            "speed": "0.25f",
+            "direction": "0",
+            "delay": "2600"
+          },
+          {
+            "speed": "0.25f",
+            "direction": "90",
+            "delay": "1750"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "2-3",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "3",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "180",
+            "delay" : "2600"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "3-4",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "4",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "270",
+            "delay" : "4500"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "225",
+            "delay" : "2500"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "270",
+            "delay" : "5000"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "4-6",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "6",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "270",
+            "delay" : "2500"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "3-5",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "5",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "90",
+            "delay" : "13000"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "5-7",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "7",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "135",
+            "delay" : "2500"
+          }
+        ]
+      }
+    }
+  ]
+}
