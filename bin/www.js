@@ -8,6 +8,7 @@
  var debug = require('debug')('ihm-web:server');
  var http = require('http');
  var fs = require('fs');
+ var graphModule = require("./graph");
 
 /**
 * Get port from environment and store in Express.
@@ -134,7 +135,37 @@ io.sockets.on('connection', function (socket) {
         console.log('Message received : '+ msg);
     });
 
-    socket.on('askDirection', function (roomId, directionId) {
+    socket.on('askDirection', function (from, to) { //roomId, directionId
+
+        var finish = false;
+        var data = graphModule.graph.getPath( from, to );
+        console.log( "Chemin entier : "+data.path );
+        var chemin = data.path[0] +'-'+ data.path[1];
+
+        if(data.path[1] == to) {
+            finish = true;
+        }
+
+        fs.readFile('ressources/directions2.json', 'utf8', function (err, data) {
+            if (err) throw err;
+            console.log("File ressources/directions.json open");
+
+            var directions2 = JSON.parse(data).directions;
+            for (var y = 0; y < directions2.length; y++) {
+
+                if (directions2[y].direction == chemin) {
+                    console.log("Chemin trouvé (" + chemin + ")");
+
+                    directions2 = JSON.stringify(directions2[y]);
+                    var directions = JSON.parse(directions2).data;
+
+                    console.log("Emit : " + JSON.stringify(directions), finish);
+                    socket.emit('newDirection', directions, finish);
+                }
+            }
+        });
+        
+        /*
         console.log("------------------");
         console.log("Room asked (id : " + roomId + ")");
         console.log("Direction asked (id : " + directionId + ")");
@@ -161,6 +192,8 @@ io.sockets.on('connection', function (socket) {
                 }
             }
         });
+        */
+        
     });
 
     socket.on('askPosition', function (positionId) {
