@@ -25,6 +25,30 @@
       }
     },
     {
+      "direction": "2-1",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "1",
+        "directions": [
+          {
+            "speed": "0.25f",
+            "direction": "270",
+            "delay": "1750"
+          },
+          {
+            "speed": "0.25f",
+            "direction": "180",
+            "delay": "2600"
+          },
+          {
+            "speed": "0.25f",
+            "direction": "135",
+            "delay": "2600"
+          }
+        ]
+      }
+    },
+    {
       "direction": "2-3",
       "data": {
         "stairs": "none",
@@ -33,6 +57,20 @@
           {
             "speed" : "0.25f",
             "direction" : "180",
+            "delay" : "2600"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "3-2",
+      "data": {
+        "stairs": "down",
+        "qrcodeId": "2",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "360",
             "delay" : "2600"
           }
         ]
@@ -63,6 +101,30 @@
       }
     },
     {
+      "direction": "4-3",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "3",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "90",
+            "delay" : "5000"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "90",
+            "delay" : "4500"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "45",
+            "delay" : "2500"
+          }
+        ]
+      }
+    },
+    {
       "direction": "4-6",
       "data": {
         "stairs": "none",
@@ -71,6 +133,20 @@
           {
             "speed" : "0.25f",
             "direction" : "270",
+            "delay" : "2500"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "6-4",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "4",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "90",
             "delay" : "2500"
           }
         ]
@@ -91,6 +167,20 @@
       }
     },
     {
+      "direction": "5-3",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "3",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "270",
+            "delay" : "13000"
+          }
+        ]
+      }
+    },
+    {
       "direction": "5-7",
       "data": {
         "stairs": "none",
@@ -99,6 +189,20 @@
           {
             "speed" : "0.25f",
             "direction" : "135",
+            "delay" : "2500"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "7-5",
+      "data": {
+        "stairs": "none",
+        "qrcodeId": "5",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "315",
             "delay" : "2500"
           }
         ]

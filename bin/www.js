@@ -358,35 +358,3 @@ function onListening() {
 
     console.log('Listening on ' + bind);
 }
-
-/*
-var from = '4';
-var to = '6';
-var finish = false;
-var data = graphModule.graph.getPath( from, to );
-console.log( data.path[0] +'-'+ data.path[1] );
-var chemin = data.path[0] +'-'+ data.path[1];
-
-if(data.path[1] == to) {
-    finish = true;
-}
-
-fs.readFile('ressources/directions2.json', 'utf8', function (err, data) {
-    if (err) throw err;
-    console.log("File ressources/directions.json open");
-
-    var directions2 = JSON.parse(data).directions;
-    for (var y = 0; y < directions2.length; y++) {
-
-        if (directions2[y].direction == chemin) {
-            console.log("Chemin trouvé (" + chemin + ")");
-
-            directions2 = JSON.stringify(directions2[y]);
-            var directions = JSON.parse(directions2).data;
-            
-            console.log("Emit : " + JSON.stringify(directions), finish);
-            //socket.emit('newDirection', directions, finish);
-        }
-    }
-});
- */
