@@ -4,6 +4,7 @@
       "direction": "1-2",
       "data": {
         "stairs": "up",
+        "arrow": "front-right",
         "qrcodeId": "2",
         "directions": [
           {
@@ -28,6 +29,7 @@
       "direction": "2-1",
       "data": {
         "stairs": "none",
+        "arrow" : "back",
         "qrcodeId": "1",
         "directions": [
           {
@@ -52,6 +54,7 @@
       "direction": "2-3",
       "data": {
         "stairs": "none",
+        "arrow" : "right",
         "qrcodeId": "3",
         "directions": [
           {
@@ -66,7 +69,8 @@
       "direction": "3-2",
       "data": {
         "stairs": "down",
-        "qrcodeId": "8",
+        "arrow" : "back",
+        "qrcodeId": "2",
         "directions": [
           {
             "speed" : "0.25f",
@@ -80,6 +84,7 @@
       "direction": "3-4",
       "data": {
         "stairs": "none",
+        "arrow" : "right",
         "qrcodeId": "4",
         "directions": [
           {
@@ -104,22 +109,23 @@
       "direction": "4-3",
       "data": {
         "stairs": "none",
+        "arrow" : "left",
         "qrcodeId": "3",
         "directions": [
           {
-            "speed": "0.25f",
-            "direction": "90",
-            "delay": "5000"
-          },
-          {
             "speed" : "0.25f",
-            "direction" : "45",
-            "delay" : "2500"
+            "direction" : "90",
+            "delay" : "5000"
           },
           {
             "speed" : "0.25f",
             "direction" : "90",
             "delay" : "4500"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "45",
+            "delay" : "2500"
           }
         ]
       }
@@ -128,12 +134,13 @@
       "direction": "4-6",
       "data": {
         "stairs": "none",
+        "arrow" : "right",
         "qrcodeId": "6",
         "directions": [
           {
             "speed" : "0.25f",
             "direction" : "270",
-            "delay" : "2800"
+            "delay" : "2500"
           }
         ]
       }
@@ -142,12 +149,13 @@
       "direction": "6-4",
       "data": {
         "stairs": "none",
+        "arrow" : "left",
         "qrcodeId": "4",
         "directions": [
           {
             "speed" : "0.25f",
             "direction" : "90",
-            "delay" : "2800"
+            "delay" : "2500"
           }
         ]
       }
@@ -156,6 +164,7 @@
       "direction": "3-5",
       "data": {
         "stairs": "none",
+        "arrow" : "left",
         "qrcodeId": "5",
         "directions": [
           {
@@ -170,6 +179,7 @@
       "direction": "5-3",
       "data": {
         "stairs": "none",
+        "arrow" : "right",
         "qrcodeId": "3",
         "directions": [
           {
@@ -184,12 +194,13 @@
       "direction": "5-7",
       "data": {
         "stairs": "none",
+        "arrow" : "front-left",
         "qrcodeId": "7",
         "directions": [
           {
             "speed" : "0.25f",
             "direction" : "135",
-            "delay" : "2300"
+            "delay" : "2500"
           }
         ]
       }
@@ -198,12 +209,13 @@
       "direction": "7-5",
       "data": {
         "stairs": "none",
+        "arrow" : "back-left",
         "qrcodeId": "5",
         "directions": [
           {
             "speed" : "0.25f",
             "direction" : "315",
-            "delay" : "2300"
+            "delay" : "2500"
           }
         ]
       }
