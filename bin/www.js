@@ -165,35 +165,6 @@ io.sockets.on('connection', function (socket) {
             }
         });
         
-        /*
-        console.log("------------------");
-        console.log("Room asked (id : " + roomId + ")");
-        console.log("Direction asked (id : " + directionId + ")");
-        fs.readFile('ressources/directions.json', 'utf8', function (err, data) {
-            if (err) throw err;
-            console.log("File ressources/directions.json open");
-            var directions2 = JSON.parse(data).directions;
-            for(var y = 0; y < directions2.length; y++){
-
-                if (directions2[y].roomID == roomId) {
-                    console.log("Room found (id : " + roomId + ")");
-                    
-                    directions2 = JSON.stringify(directions2[y]);
-                    var directions = JSON.parse(directions2).directions;
-
-                    for (var i = 0; i < directions.length; i++) {
-                        if (directions[i].id == directionId) {
-                            console.log("Direction found (id : " + directionId + ")");
-                            console.log("Emit : " + JSON.stringify(directions[i]));
-                            socket.emit('newDirection', directions[i]);
-                            break;
-                        }
-                    }
-                }
-            }
-        });
-        */
-        
     });
 
     socket.on('askPosition', function (positionId) {
@@ -213,12 +184,34 @@ io.sockets.on('connection', function (socket) {
             })
     });
 
-
     socket.on('askAllRooms', function () {
         console.log("------------------");
         console.log('All rooms asked');
         sendRooms();
     });
+
+    socket.on('getRoomWithEvent', function() {
+        console.log("------------------");
+        console.log('Rooms with event asked');
+        readFile('ressources/rooms.json').then(
+            function(data) {
+                var roomWithEvent = [];
+                data = JSON.parse(data);
+                for(var k = 0; k < data.length; k++) {
+                    roomWithEvent[k] = [];
+                    var rooms = data[k].rooms;
+                    for(var i = 0; i < rooms.length; i++){
+                        for(var interval in rooms[i].activity )
+                            if(rooms[i].activity[interval] != ""){
+                                roomWithEvent[k].push(rooms[i]);
+                                break;
+                            }
+                        }
+                    }
+                    console.log("Emit : " + JSON.stringify(data));
+                    socket.emit('roomWithEvent', roomWithEvent);
+                })
+    })
 
     socket.on('setRoom', function(data){
         var room = data.room;
