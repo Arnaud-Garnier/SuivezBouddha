@@ -219,6 +219,46 @@
           }
         ]
       }
+    },
+    {
+      "direction": "2-9",
+      "data": {
+        "stairs": "none",
+        "arrow" : "right",
+        "qrcodeId": "9",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "0",
+            "delay" : "3000"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "90",
+            "delay" : "2600"
+          }
+        ]
+      }
+    },
+    {
+      "direction": "9-2",
+      "data": {
+        "stairs": "none",
+        "arrow" : "right",
+        "qrcodeId": "2",
+        "directions": [
+          {
+            "speed" : "0.25f",
+            "direction" : "270",
+            "delay" : "2600"
+          },
+          {
+            "speed" : "0.25f",
+            "direction" : "180",
+            "delay" : "3000"
+          }
+        ]
+      }
     }
   ]
 }
