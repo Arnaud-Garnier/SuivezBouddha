@@ -4,7 +4,7 @@
       "direction": "1-2",
       "data": {
         "stairs": "up",
-        "arrow": "front-right",
+        "arrow": "right",
         "qrcodeId": "2",
         "directions": [
           {
