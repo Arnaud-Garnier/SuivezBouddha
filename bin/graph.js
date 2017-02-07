@@ -21,6 +21,8 @@ graph.fromTo( '5', '3', 1 );
 graph.fromTo( '5', '7', 1 );
 graph.fromTo( '7', '5', 1 );
 
+graph.fromTo( '2', '9', 1 );
+graph.fromTo( '9', '2', 1 );
 
 module.exports.graph = graph;
 
