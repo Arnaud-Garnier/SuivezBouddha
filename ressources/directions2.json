@@ -120,13 +120,13 @@
           },
           {
             "speed" : "0.25f",
-            "direction" : "90",
-            "delay" : "4500"
+            "direction" : "45",
+            "delay" : "2500"
           },
           {
             "speed" : "0.25f",
-            "direction" : "45",
-            "delay" : "2500"
+            "direction" : "90",
+            "delay" : "4500"
           }
         ]
       }
